@@ -26,19 +26,31 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 <script>
+  //var mydate ="M008,D005,1234567890123456,113.559819148548850,28.3895138 19383120";
   var mydate = {
-    "longitude":"testajax",
-    "latitude":"ajaxtest"
-  };
+    "name":"ajaxdate",
+    "country":"dateajax"
+  }
   test = function(){
-    $.post('http://localhost:8080/persons/add',mydate,function(){
-      console.log("成功")
+    $.ajax({
+      type:"POST",
+      url:"add",
+      dataType:"json",
+      contentType:"application/json",
+      data: JSON.stringify(mydate),
+      success: function (date) {
+        console.log('success');
+        console.log(date);
+      },
+      error: function(date){
+        console.log('failed');
+        console.log(date);
+      }
     });
   };
-  begin = function(){setInterval("test()",500)};
-  // end=function(){(window.clearInterval(begin())};
+  begin = function(){stop=setInterval("test()",500)};
   function end(){
-    window.clearInterval(begin());
+    window.clearInterval(stop);
   }
   // var oAjax;
   // function test(){

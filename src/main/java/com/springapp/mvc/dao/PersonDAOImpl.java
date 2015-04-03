@@ -5,9 +5,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Repository;
-import java.util.List;
 
+import java.util.List;
 
 
 /**
@@ -26,7 +25,9 @@ public class PersonDAOImpl implements PersonDAO {
     public void addPerson(Person p) {
         Session session = this.sessionFactory.getCurrentSession();
         session.persist(p);
-        logger.info("Person saved successfully, Person Details="+p);
+        logger.debug("Person saved successfully, Person Details="+p);
+        logger.info("fuck fuck fuck");
+        logger.debug("jfoiajweoifjaweoifjaoi");
         //TODO 把LOG4j组件挂上来调通
     }
 

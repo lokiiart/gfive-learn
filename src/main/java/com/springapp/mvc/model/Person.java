@@ -15,6 +15,7 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY   )
 
     private int id;
+    private String machine_id;
     private String name;
     private String country;
 
@@ -46,5 +47,13 @@ public class Person {
     @Override
     public String toString(){
         return "id="+id;
+    }
+
+    public String getMachine_id() {
+        return machine_id;
+    }
+
+    public void setMachine_id(String machine_id) {
+        this.machine_id = machine_id;
     }
 }
