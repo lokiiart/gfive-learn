@@ -26,11 +26,11 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 <script>
-  //var mydate ="M008,D005,1234567890123456,113.559819148548850,28.3895138 19383120";
-  var mydate = {
-    "name":"ajaxdate",
-    "country":"dateajax"
-  }
+  var mydate ="M008,D005,1234567890123456,113.559819148548850,28.389513819383120";
+//  var mydate = {
+//    "name":"ajaxdate",
+//    "country":"dateajax"
+//  }
   test = function(){
     $.ajax({
       type:"POST",
@@ -82,57 +82,6 @@
 <button onclick="end();">停止发送</button>
 
 
-<c:url var="addAction" value="/persons/add" ></c:url>
-
-<form:form action="${addAction}" commandName="person">
-  <table>
-    <c:if test="${!empty person.name}">
-      <tr>
-        <td>
-          <form:label path="id">
-            <spring:message text="ID"/>
-          </form:label>
-        </td>
-        <td>
-          <form:input path="id" readonly="true" size="8"  disabled="true" />
-          <form:hidden path="id" />
-        </td>
-      </tr>
-    </c:if>
-    <tr>
-      <td>
-        <form:label path="name">
-          <spring:message text="Name"/>
-        </form:label>
-      </td>
-      <td>
-        <form:input path="name" />
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <form:label path="country">
-          <spring:message text="Country"/>
-        </form:label>
-      </td>
-      <td>
-        <form:input path="country" />
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <c:if test="${!empty person.name}">
-          <input type="submit"
-                 value="<spring:message text="Edit Person"/>" />
-        </c:if>
-        <c:if test="${empty person.name}">
-          <input type="submit"
-                 value="<spring:message text="Add Person"/>" />
-        </c:if>
-      </td>
-    </tr>
-  </table>
-</form:form>
 <br>
 <h3>Persons List</h3>
 <c:if test="${!empty listPersons}">
@@ -147,8 +96,8 @@
     <c:forEach items="${listPersons}" var="person">
       <tr>
         <td>${person.id}</td>
-        <td>${person.name}</td>
-        <td>${person.country}</td>
+        <td>${person.model}</td>
+        <td>${person.imei}</td>
         <td><a href="<c:url value='/persons/edit/${person.id}' />" >Edit</a></td>
         <td><a href="<c:url value='/persons/remove/${person.id}' />" >Delete</a></td>
       </tr>

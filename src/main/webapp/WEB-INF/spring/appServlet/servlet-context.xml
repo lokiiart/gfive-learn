@@ -94,4 +94,12 @@
     </beans:bean>
     <beans:bean name="stringToJsonFilterBean" class="com.springapp.mvc.filter.stringToJsonFilter" />
 
+
+    <interceptors>
+        <interceptor>
+            <mapping path="/persons/add" />
+            <beans:bean class="com.springapp.mvc.interceptor.gpsToJsonInterceptor"></beans:bean>
+        </interceptor>
+    </interceptors>
+
 </beans:beans>

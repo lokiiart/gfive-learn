@@ -21,15 +21,6 @@
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
-    <mvc:interceptors>
-        <!-- 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 -->
-        <bean class="com.springapp.mvc.AllInterceptor"/>
-        <mvc:interceptor>
-            <mvc:mapping path="/test/number.do"/>
-            <!-- 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 -->
-            <bean class="com.host.app.web.interceptor.LoginInterceptor"/>
-        </mvc:interceptor>
-    </mvc:interceptors>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
